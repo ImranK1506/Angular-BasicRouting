@@ -8,7 +8,7 @@ import {AuthenticationService} from '../service/authentication.service';
 })
 export class ProtectedComponent implements OnInit {
 
-  constructor(private service: AuthenticationService) { }
+  constructor(public service: AuthenticationService) { }
 
   ngOnInit() {
   }

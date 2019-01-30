@@ -24,3 +24,16 @@
   Logged in as <strong>{{ service.getUser()}}</strong>&nbsp;
   <a href (click)="logout()">Log out</a>
 </div>
+
+<div class="ui divider"></div>
+
+<div class="ui info message" *ngIf="!service.getUser()">
+  <!--<i class="close icon"></i>-->
+  <div class="header">
+    Test account
+  </div>
+  <ul class="list">
+    <li>Username: user</li>
+    <li>Password: password</li>
+  </ul>
+</div>
