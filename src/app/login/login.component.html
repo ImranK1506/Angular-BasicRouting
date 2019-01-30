@@ -1,1 +1,26 @@
-<h2>Login Here</h2>
+<h2>Login</h2>
+
+<div class="ui negative message" role="alert" *ngIf="message">
+  <i class="close icon"></i>
+  <div class="header">
+    Oops!
+  </div>
+  <p>{{ message }}</p>
+</div>
+
+<form class="ui form attached fluid segment" *ngIf="!service.getUser()">
+  <div class="field">
+    <label>Username</label>
+    <input placeholder="Username" type="text" name="username" #username>
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input placeholder="Password" type="password" name="password" #password>
+  </div>
+  <div class="ui blue submit button" (click)="login(username.value, password.value)">Submit</div>
+</form>
+
+<div class="ui bottom attached warning message" *ngIf="service.getUser()">
+  Logged in as <strong>{{ service.getUser()}}</strong>&nbsp;
+  <a href (click)="logout()">Log out</a>
+</div>
