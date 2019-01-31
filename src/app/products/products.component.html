@@ -1,14 +1,14 @@
 <h2>Product List</h2>
 
 <div class="ui pointing menu">
-  <a class="active item" [routerLink]="['/main']">Main</a>
-  <a class="item" [routerLink]="['/more-info']">More Info</a>
+  <a class="active item" [routerLink]="['./main']">Main</a>
+  <a class="item" [routerLink]="['./more-info']">More Info</a>
 
     <div class="item">
       <div class="field">
         Enter id:
         <span class="ui input">
-          <input class="ui input" placeholder="#id" #id size="6">
+          <input placeholder="#id" #id size="6">
         </span>
         <div class="ui blue submit button" (click)="goToProduct(id.value)">Go</div>
       </div>

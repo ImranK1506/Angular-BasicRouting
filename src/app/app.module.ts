@@ -13,24 +13,23 @@ import { LoginComponent } from './login/login.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { ProductsComponent } from './products/products.component';
 import { LoggedInGuard } from './logged-in.guard';
+import { ProductComponent } from './products/product/product.component';
+
 import { AUTH_PROVIDERS } from './service/authentication.service';
 
-import { ProductsModule } from './products/products.module';
-import {ProductComponent} from './products/product/product.component';
+import { ProductsModule, routes as childRoutes } from './products/products.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  // { path: 'products/:id', component: ProductsComponent },
   { path: 'contactUs', redirectTo: 'contact' },
   { path: 'login', component: LoginComponent },
   { path: 'protected', component: ProtectedComponent, canActivate: [ LoggedInGuard ] },
   // nested routes
   {
-    path: 'products', component: ProductsComponent,
-    children: [{ path: ':id', component: ProductComponent }]
+    path: 'products', component: ProductsComponent, children: childRoutes
   }
 ];
 
@@ -41,8 +40,7 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    ProtectedComponent,
-    ProductsComponent
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
