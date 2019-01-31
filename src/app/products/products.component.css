@@ -1,0 +1,22 @@
+.field {
+  padding: 5px
+}
+
+.input {
+  margin: 0 5px;
+}
+
+.ui input {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ui.blue.submit.button {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.item {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}

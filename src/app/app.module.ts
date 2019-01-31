@@ -11,22 +11,27 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { ProtectedComponent } from './protected/protected.component';
-import { ProductComponent } from './product/product.component';
+import { ProductsComponent } from './products/products.component';
 import { LoggedInGuard } from './logged-in.guard';
 import { AUTH_PROVIDERS } from './service/authentication.service';
+
+import { ProductsModule } from './products/products.module';
+import {ProductComponent} from './products/product/product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  // { path: 'product/:id', component: ProductComponent },
+  // { path: 'products/:id', component: ProductsComponent },
   { path: 'contactUs', redirectTo: 'contact' },
   { path: 'login', component: LoginComponent },
-  { path: 'protected', component: ProtectedComponent, canActivate: [ LoggedInGuard ] }
-
+  { path: 'protected', component: ProtectedComponent, canActivate: [ LoggedInGuard ] },
   // nested routes
-  // { path: 'product/', component: ProductComponent, children: childRoutes }
+  {
+    path: 'products', component: ProductsComponent,
+    children: [{ path: ':id', component: ProductComponent }]
+  }
 ];
 
 @NgModule({
@@ -37,7 +42,7 @@ const routes: Routes = [
     ContactComponent,
     LoginComponent,
     ProtectedComponent,
-    ProductComponent
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
 
   //  Child module
-  //   ProductsModule
+    ProductsModule
   ],
   providers: [
   //  Hash routing
