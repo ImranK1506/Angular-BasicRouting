@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Live preview
 
-[Angular Routing](https://routes-ot700mxhz.now.sh)
+[Angular Routing](https://routes-hhpvt67qx.now.sh/#/home)
